@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/phone.css" media="screen and (width:500px)">
+    <title>SCEA</title>
+</head>
+<%- include('partials/header.ejs') %>
+<body>
+    <main>
+        <div>
+        <article class="send-area">
+            <div>
+               <%if (locals.cadastro){%>
+               <h1>Cadastramento</h1>
+               <form id="cadastro" action="/cadastro" method="POST">
+                   <input placeholder="Produto" required maxlength="20" type="text" name="produto" id="produto">
+                   <input placeholder="Estoque" required max="100000000" type="number" name="estoque" id="valor">
+                   <input placeholder="Preço" format="currency" precision="2" required type="number" name="price" id="price" step="0.010">
+                   <button>Enviar</button>
+               </form>
+               <%}else if (locals.delete){%>
+                <h1>Exclusão</h1>
+               <form id="cadastro" action="/delete" method="POST">
+                   <input placeholder="ID Do Produto" required maxlength="20" type="text" name="produto" id="produto">
+                   <label for="confirm">Confirmar ?</label>
+                   <input required type="checkbox" name="confirm" id="confirm">
+                   <button style="background-color: red;">DELETAR</button>
+               </form>
+                <%}else if (locals.alterar){%>
+                    <h1>Alteração</h1>
+                    <form id="cadastro" action="/alterar" method="POST">
+                        <input placeholder="Produto" required maxlength="20" type="text" name="produto" id="produto">
+                        <input placeholder="Estoque" required max="100000000" type="number" name="estoque" id="valor">
+                        <input placeholder="Preço" format="currency" precision="2" required type="number" name="price" id="price" step="0.010">
+                        <button>Enviar</button>
+                    </form>
+                    <%}else{%>
+                        <h1>Consulta</h1>
+                        <form id="cadastro" action="/consulta" method="POST">
+                            <input placeholder="ID do Produto" required type="number" name="produto" id="produto">
+                            <button>Enviar</button>
+                        </form>
+                    <%}%>
+           </div>
+        </article>
+        
+        <article class="products-area">
+            <div class="products">
+                <table id="products">
+                    <thead>
+                        <tr class="table-header">
+                            <th>Produto:</th>
+                            <th>Estoque:</th>
+                            <th>R$ :</th>
+                            <th>Matrícula:</th>
+                            <th>M. do Produto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <% if (locals.products.length > 1){%>
+                            <%locals.products.map((product)=>{%>
+                                <tr>
+                        <td class="fill"><%=product.produto%></td>
+                        <td><%=product.estoque%></td>
+                        <td><%=product.price%></td>
+                        <td><%=product.userid%></td>
+                        <td><%=product.id%></td>
+                    </tr>
+                    <%})%>
+                    <%}else if(locals.products){%>
+                        <tr>
+                            <td class="fill"><%=products[0].produto%></td>
+                            <td><%=products[0].estoque%></td>
+                            <td><%=products[0].price%></td>
+                            <td><%=products[0].userid%></td>
+                            <td><%=products[0].id%></td>
+                        </tr>
+                        <%}else{%>
+                            
+                            <tr>
+                                <td>SISTEMA</td>
+                                <td>DE</td>
+                                <td>CADASTRO</td>
+                                <td>DE</td>
+                                <td>ESTOQUE</td>
+                                </tr>
+                            <%}%>
+                </tbody>
+                </table>
+            </div>
+        </article>
+    </div>
+    </main>
+    <%- include('partials/footer.ejs') %>
+    <script src="script.js"></script>
+</body>
+</html>

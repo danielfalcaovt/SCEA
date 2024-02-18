@@ -1,0 +1,26 @@
+console.log("Hello,World!");
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Oque vai ser o SCEA?
+
+S.C.E.A.
+
+Sistema de cadastro do estoque automatico.
+
+Sera uma aplicaçao feita inteiramente em JavaScript aonde
+permitirei o usuario ter facilidade ao cadastrar / remover 
+itens do banco de dados de seu comercio, utilizarei o PostgreSQL
+como BD, o qual tera um padrao (id, nome do produto, valor, valorPromocional)
+e atraves da aplicaçao, o usuario tera opçoes na tela em que automaticamente
+oque ele cadastrar nesta aplicaçao sera inserido no banco de dados.
+
+A aplicaçao sera feita inteiramente em JavaScript, principalmente
+seus frameworks como express.
+
+Lembrando que a ideia / design / front & backend etc.
+foi tudo inteiramente produzido e pensado por mim,
+nenhuma outra pessoa foi incluida neste projeto.
+
+[02/02/2024 | 16:37]
+
+//////////////////////////////////////////////////////////////////////////////////
