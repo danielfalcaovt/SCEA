@@ -1,100 +1,97 @@
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 70%}
-    50%{background-position:100% 31%}
-    100%{background-position:0% 70%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 70%}
-    50%{background-position:100% 31%}
-    100%{background-position:0% 70%}
-}
-@keyframes AnimationName {
-    0%{background-position:0% 70%}
-    50%{background-position:100% 31%}
-    100%{background-position:0% 70%}
-}
 *{
     padding: 0px;
     margin: 0px;
-
+    font-family: Arial, Helvetica, sans-serif;
 }
 main{
     height: 100vh;
     justify-content: center;
+    width: 100vw;
     align-items: center;
-    display: flex;
-    background-image: linear-gradient(to right, #ff9a16,#ffbb27);
-}
-main > div{
-    height: 400px;
-    width: 350px;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.514);
-    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.205);
-    position: relative;
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
 }
 
-main>div>form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-main >div>form>input{
+input{
     padding: 5px;
-    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.438);
+    border-radius: 5px;
+    background-color: #500707;
     outline: 0px;
-    border: 0px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.253);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.253);
     margin-bottom: 10px;
-    width: 200px;
-    height: 20px;
+    width: 250px;
+    height: 25px;
+    color: white;
 }
-main >div>form>input:focus{
-    border: 1.5px solid black;
+input::placeholder{
+    color: rgba(255, 255, 255, 0.815);
 }
 form > button{
-    width: 100px;
-    height: 30px;
-    border-radius: 15px;
+    cursor: pointer;
+    width: 125px;
+    height: 35px;
     border: 0px solid black;
+    border-radius: 5px;
     outline: 0px;
     padding: 5px 25px;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.253);
-    background-image: linear-gradient(to right,  orange,yellow);
+    background-color: #DE5254;
     color: white;
     text-indent: -5px;
     transition-duration:0.3s;
+    margin-top: 25px;
 }
 form > button:hover{
     transform: scale(1.05);
 }
-/*
-    Metas, Religiões, Objetivos
-    Distrações, Dinheiro,
-    Conflitos...
-    Tantos meios de fugir da realidade
-    mas ainda não criamos um meio de 
-    enfrentar ela.
-*/
-main>div>h1{
+input:active{
+    background-color: #500707;
+}
+input:focus{
+    background-color: #500707;
+}
+#loginpage{
+    height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: #151515;
+}
+#loginpage h1{
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color:white;
+}
+#login, form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+}
+#login{
     position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translate(-50%);
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    top: 25%;
+    background: rgba(255, 255, 255, 0.37);
+    padding: 25px;
+    border-radius: 5px;
 }
 
-
-main {
-    background-size: 400% 400%;
-    -webkit-animation: AnimationName 15s ease infinite;
-    -moz-animation: AnimationName 15s ease infinite;
-    animation: AnimationName 15s ease infinite;
+#showpage{
+    background: url("../img/estoque.jpg") center center/cover;
+    height: 100vh;
+    position: relative;
 }
-button{
-    cursor: pointer;
+#showpage > h1{
+    position: absolute;
+    color:#f87a7c;
+    background-color:#ce1619c4;
+    width: 100%;
+    text-align: center;
+    top: 25%;
+    padding: 7.5vh 0px;
+    font-size: 2rem;
 }

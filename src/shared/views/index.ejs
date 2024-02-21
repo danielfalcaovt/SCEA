@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/phone.css" media="screen and (width:500px)">
+    <link rel="stylesheet" href="styles/phone.css" media="screen and (width:600px)">
     <title>SCEA</title>
 </head>
 <%- include('partials/header.ejs') %>
@@ -33,9 +33,9 @@
                 <%}else if (locals.alterar){%>
                     <h1>Alteração</h1>
                     <form id="cadastro" action="/alterar" method="POST">
-                        <input placeholder="Produto" required maxlength="20" type="text" name="produto" id="produto">
-                        <input placeholder="Estoque" required max="100000000" type="number" name="estoque" id="valor">
-                        <input placeholder="Preço" format="currency" precision="2" required type="number" name="price" id="price" step="0.010">
+                        <input placeholder="Matrícula do Produto" required maxlength="20" type="number" name="produto" id="produto">
+                        <input placeholder="Estoque"  max="100000000" type="number" name="estoque" id="valor">
+                        <input placeholder="Preço" format="currency" precision="2"  type="number" name="price" id="price" step="0.010">
                         <button>Enviar</button>
                     </form>
                     <%}else{%>
@@ -55,7 +55,7 @@
                         <tr class="table-header">
                             <th>Produto:</th>
                             <th>Estoque:</th>
-                            <th>R$ :</th>
+                            <th>Valor :</th>
                             <th>Matrícula:</th>
                             <th>M. do Produto</th>
                         </tr>
@@ -65,9 +65,9 @@
                         <% if (locals.products.length > 1){%>
                             <%locals.products.map((product)=>{%>
                                 <tr>
-                        <td class="fill"><%=product.produto%></td>
+                        <td id="fill"><%=product.produto%></td>
                         <td><%=product.estoque%></td>
-                        <td><%=product.price%></td>
+                        <td>R$ <%=product.price%></td>
                         <td><%=product.userid%></td>
                         <td><%=product.id%></td>
                     </tr>

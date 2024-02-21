@@ -6,8 +6,11 @@
 header{
     height: 10vh;
     display: grid;
+    position: relative;
+    z-index: 4px;
+    background-color: rgb(15, 15, 15);
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.144);
     grid-template-columns:0.1fr 0.4fr 0.4fr 0.1fr;
-    background-color: #0F0F0F;
 }
 .title{
     grid-area: 1/2/1/2;
@@ -16,32 +19,34 @@ header{
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
-    color: white;
 }
-header a {
+.title > a {
     text-decoration: none;
-    color: white;
+    color: #ce1619;
 }
-header a:hover{
+.title > a span{
+    color: #18ce45;
+}
+.title > a:hover{
     cursor: pointer;
     transform: scale(1.05);
     transition-duration: 0.2s;
 }
-header a:not(:hover){
+.title > a:not(:hover){
     transform: scale(1);
-    transition-duration: 0.2s;
+    transition-duration: 0. 2s;
 }
 /*MAIN*/
 html,body{
-    background-color: #692D86;
+    background-color: black;
 }
 main{
     display: grid;
     grid-template-columns: 0.1fr 0.8fr 0.1fr;
-    z-index: 3;
+    z-index: -1;
 }
 main >div{
-    background-color: white;
+    background-color: rgb(12, 12, 12);
     height: 80vh;
     display: grid;
     grid-area: 1/2/1/2;
@@ -54,8 +59,8 @@ main .send-area {
     border-right: 1px solid black;
 }
 main .send-area > div{
-    border: 1px solid black;
-    border-radius: 25px;
+    border: 2px solid black;
+    background-color: rgb(240, 240, 240);
     padding: 15px 30px;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.24);
     display: flex;
@@ -64,15 +69,19 @@ main .send-area > div{
     align-items: center;
     height: 300px;
 }
+
 .send-area >div > h1{
     margin-bottom: 15px;
     font-size: 2.5rem;
+    color: black;
+    font-weight: lighter;
 }
 #cadastro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
 }
 #cadastro > input[type="text"], input[type="number"]{
     margin: 6px 0px;
@@ -81,7 +90,8 @@ main .send-area > div{
     border-right: 0px;
     border-top: 0px;
     height: 35px;
-    box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.171);
+    background-color: rgb(240, 240, 240);
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.171);
     transition-duration: 0.2s;
     text-indent: 5px;
     width: 250px;
@@ -95,23 +105,24 @@ main .send-area > div{
     outline: 0px;
 }
 #cadastro > button {
-    background-color: #692D86;
-    border-radius: 35px;
+    background-color: #FF080C;
+    border-radius: 10px;
     padding: 5px 15px;
     color: white;
     border: 0px;
     font-size: 1.5rem;
     margin-top: 15px;
     cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.356);
 }
 
 /*FOOTER*/
 footer{
     display: grid;
+    background-image:linear-gradient(to right,#c42020,#500707);
     height: 10vh;
     z-index: -1;
     grid-template-columns: 0.1fr 0.8fr 0.1fr;
-    background-image: linear-gradient(to right, #92298d,#450B53);
 }
 footer > div{
     grid-area: 1/2/1/2;
@@ -119,12 +130,9 @@ footer > div{
     align-items: center;
     justify-content: flex-start;
     font-size: 1.25rem;
-    color: #450B53;
+    color: white;
 }
 
-#products{
-    border-collapse: collapse;
-}
 #products tbody{
     height: 100%;
     overflow-y: auto;
@@ -142,7 +150,7 @@ footer > div{
     background-color: transparent;
 }
 .products-area::-webkit-scrollbar-thumb{
-    background-color:#852faf;
+    background-color:#d10609;
     border-radius: 15px;
 }
 .products{
@@ -151,25 +159,35 @@ footer > div{
     justify-content: center;
     align-items: center;
 }
+#products{
+    border-collapse: collapse;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
 #products th,td {
     border: 1px solid black;
-    padding: 5px;
-    margin: 10px 0px;
+    padding: 7px;
+    color: white;
+}
+td{
+    color: black;
+
 }
 .table-header{
-    background:#E04024;
-    color: #f6ff00;
+    background:#FF080C;
+    color: white;
 }
-.fill{
-    background-color:#E0E622;
-    color: black;
+#fill{
+    color: white;
+    background-color: #d40508;
 }
 header ul{
     display: flex;
 }
 #menu{
-    background-color: #0F0F0F;
-    z-index: 3;    
+    background-color: rgb(15, 15, 15);
+    z-index: 3;
 }
 #hamburguer{
     background-color: transparent;
@@ -193,7 +211,7 @@ header ul{
 .box > div{
     width: 100%;
     height: 6px;
-    background-color: white;
+    background-image: linear-gradient(to right, rgb(228, 228, 228), rgb(184, 184, 184));
     border-radius: 15px;
 }
 #ft-line{
@@ -211,7 +229,6 @@ header > nav{
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: #0F0F0F;
     grid-area: 1/1/2/5;
 }
 
@@ -221,8 +238,21 @@ header ul {
     justify-content: space-around;
     width: 100%;
 }
-header ul > li{
+header ul a{
+    color: white;
+    text-decoration: none;
+}
+header ul li:nth-child(odd) {
     padding: 7px 10px;
-    background-color:#E18324;
-    box-shadow: inset 0px 0px 3px 2px rgba(0, 0, 0, 0.473);
+    background-color:#FF080C;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.473);
+}
+header ul li:nth-child(even){
+    padding: 7px 10px;
+    background-color: #17E249;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.473);
 }

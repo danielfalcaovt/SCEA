@@ -39,8 +39,6 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, "../shared/public")));
 
-
-
 app.get("/",async(req,res)=>{
     if(req.isAuthenticated()){
         res.redirect("/consulta");
@@ -79,7 +77,6 @@ app.post("/cadastro",async(req,res)=>{
         const userid = req.user.id;
         const produto = req.body.produto.trim();
         const price = parseFloat(req.body.price.trim()).toFixed(2);
-        console.log(price);
         const estoque = req.body.estoque.trim();
 
         let checkHave = await db.query("SELECT * FROM posts WHERE (produto = $1 AND estoque = $2)",[produto,estoque]);
@@ -117,20 +114,23 @@ app.get("/alterar", async(req,res)=>{
 
 app.post("/alterar", async(req,res)=>{
     if (req.isAuthenticated()){
-        let produto = req.body.produto;
-        
-        const check = await db.query("SELECT * FROM posts WHERE produto = $1",[produto]);
-        let valor = check.rows[0].price;
-        let estoque = check.rows[0].estoque;
+        let matricula = req.body.produto;
+        const check = await db.query("SELECT * FROM posts WHERE id = $1",[matricula]);
         if(check.rows.length > 0){
-            req.body.price != undefined ? valor = req.body.price: "";
-            req.body.estoque != undefined ? estoque = req.body.price:"";
-            const alterado = await db.query("UPDATE posts SET produto = $1, estoque = $2, price = $3 RETURNING *",[produto,estoque,valor]);
-            res.render("index.ejs",{
-                products:alterado,
-                alterar:true
-            });
-
+            let valor;
+            let estoque;
+            if (req.body.price) {
+                valor = req.body.price;
+            }else{
+                valor = check.rows[0].price;
+            }
+            if(req.body.estoque){
+                estoque = req.body.estoque;
+            }else{
+                estoque = check.rows[0].estoque;
+            }
+            const alterado = await db.query("UPDATE posts SET estoque = $1, price = $2 WHERE id = $3 RETURNING *",[estoque,valor,matricula]);
+            res.redirect("/alterar");
         }else{
             res.redirect("/alterar");
         }

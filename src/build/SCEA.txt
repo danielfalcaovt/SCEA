@@ -24,3 +24,10 @@ nenhuma outra pessoa foi incluida neste projeto.
 [02/02/2024 | 16:37]
 
 //////////////////////////////////////////////////////////////////////////////////
+
+
+
+sistema em que voce seleciona os produtos
+seleciona a quantidade
+depois de confirmar remove do estoque a 
+quantidade inserida.
