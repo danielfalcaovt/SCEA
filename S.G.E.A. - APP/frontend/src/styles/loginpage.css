@@ -1,0 +1,97 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+}
+
+input{
+    padding: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.438);
+    border-radius: 5px;
+    background-color: #500707;
+    outline: 0px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.253);
+    margin-bottom: 10px;
+    width: 250px;
+    height: 25px;
+    color: white;
+}
+input::placeholder{
+    color: rgba(255, 255, 255, 0.815);
+}
+form > button{
+    cursor: pointer;
+    width: 125px;
+    height: 35px;
+    border: 0px solid black;
+    border-radius: 5px;
+    outline: 0px;
+    padding: 5px 25px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.253);
+    background-color: #DE5254;
+    color: white;
+    text-indent: -5px;
+    transition-duration:0.3s;
+    margin-top: 25px;
+}
+form > button:hover{
+    transform: scale(1.05);
+}
+input:active{
+    background-color: #500707;
+}
+input:focus{
+    background-color: #500707;
+}
+#loginpage{
+    height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: #151515;
+}
+#loginpage h1{
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color:white;
+}
+#login, form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+}
+#login{
+    position: absolute;
+    top: 25%;
+    background: rgba(255, 255, 255, 0.37);
+    padding: 25px;
+    border-radius: 5px;
+}
+
+#showpage{
+    background: url("../img/estoque.jpg") center center/cover;
+    height: 100vh;
+    position: relative;
+}
+#showpage > h1{
+    position: absolute;
+    color:#f87a7c;
+    background-color:#ce1619c4;
+    width: 100%;
+    text-align: center;
+    top: 25%;
+    padding: 7.5vh 0px;
+    font-size: 2rem;
+}

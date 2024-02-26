@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -w",
-    "dev": "nodemon src/dist/SGEA.js"
+    "dev": "node src/dist/SGEA.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +18,8 @@
     "express": "^4.18.2",
     "passport": "^0.7.0",
     "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20"
   }
 }
