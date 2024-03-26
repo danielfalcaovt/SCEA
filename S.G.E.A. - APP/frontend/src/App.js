@@ -1,40 +1,25 @@
-import Header from "./Components/Header"
-import Footer from "./Components/Footer"
-import Main from "./Components/Main"
+import Main from "./Components/pages/Main";
 import axios from "axios";
-import Login from "./Components/Login";
+import Root from "./Components/Root";
+import Login from "./Components/auth/Login";
 import { useEffect, useState } from "react";
-
-
+import ErrorPage from "./Components/pages/error/ErrorPage";
+import { Navigate, BrowserRouter, Route, Routes } from "react-router-dom";
+import Consulta from "./Components/pages/gerenciadores/Consulta";
+import Cadastro from "./Components/pages/gerenciadores/Cadastro";
+import Alteracao from "./Components/pages/gerenciadores/Alteracao";
+import Remocao from "./Components/pages/gerenciadores/Remocao";
 
 export default function App() {
-
-  const [auth,setAuth] = useState();
-  async function fetchData(){
-  
-    const response = await axios.get("http://localhost:5500/api");
-    const data = response.data;
-  
-    setAuth(data);
-  };
-
-  useEffect(()=>{
-    fetchData();
-  },[]);
-
-  if (auth){
-    return(
-      <>
-        <Header />
-        <Main />
-        <Footer />
-      </> 
-    )
-  }else{
-    return (
-      <>
-        <Login/> 
-      </>
-    )
-  }
-};
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Root />}>
+          <Route path="gerenciador?" element={<Main />} >
+            <Route path="gerenciador/:idGerenciador?" loader={({ params })=>{console.log(params)}}} element={<Consulta/>}/>
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}

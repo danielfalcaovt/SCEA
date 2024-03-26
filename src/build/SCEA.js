@@ -22,7 +22,7 @@ const db = new pg.Client({
 db.connect();
 
 const app = express();
-const port = 3000;
+const port = 3500;
 const __dirname = import.meta.dirname;
 
 app.set('views', path.join(__dirname, '../shared/views'));
@@ -33,6 +33,7 @@ app.use(
       saveUninitialized: true,
     })
     );
+
     
 app.use(passport.initialize());
 app.use(passport.session());
@@ -240,7 +241,7 @@ app.post("/delete",async(req,res)=>{
 app.get('/login',(req,res)=>{
     res.render("login.ejs");
 }); 
-app.post("/login", passport.authenticate("local",{
+app.post("/api/login", passport.authenticate("local",{
     successRedirect:"/",
     failureRedirect:"/login"
 }));

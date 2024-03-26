@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom"
+
 export default function Header() {
   return(
     <header>
       <div className="title">
-        <a href="/">
+        <Link to="/">
           <h1>SGEA</h1>
-        </a>
+        </Link>
       </div>
       <div id="hamburguer">
         <button>
@@ -16,24 +18,24 @@ export default function Header() {
       <nav className="invisible" id="menu">
         <ul>
           <li>
-            <a href="/delete">
+            <Link to="/gerenciador/1">
               Remover Produto
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/cadastro">
+            <Link to="/gerenciador/2">
               Cadastrar Produto
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/consulta">
+            <Link to="/gerenciador/3">
               Consultar Produto
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/alterar">
+            <Link to="/gerenciador/4">
               Alterar Produto
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

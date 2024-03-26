@@ -81,7 +81,7 @@ input:focus{
 }
 
 #showpage{
-    background: url("../img/estoque.jpg") center center/cover;
+    /* background: url("../img/estoque.jpg") center center/cover; */
     height: 100vh;
     position: relative;
 }
